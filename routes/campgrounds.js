@@ -2,7 +2,6 @@ var express = require("express"),
 router      = express.Router(),
 Campground  = require("../models/campground"),
 middlware   = require("../middleware"),
-geocoder    = require("geocoder"),
 multer      = require('multer');
 // IMAGE UPLOAD CONFIGURATION
 var storage = multer.diskStorage({
@@ -26,14 +25,14 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET
 });
 
-
-// var NodeGeocoder = require('node-geocoder');
-// var options = {
-//   provider: 'google',
-//   httpAdapter: 'https',
-//   apiKey: process.env.AIzaSyANsdOFrVtJpGOB8NTUh8WU1cjZGcpPqQs
-// };
-// var geocoder = NodeGeocoder(options);
+// GOOGLE MAPS CONFIG
+var NodeGeocoder = require('node-geocoder');
+var options = {
+  provider: 'google',
+  httpAdapter: 'https',
+  apiKey: process.env.GOOGLE_MAPS_KEY
+};
+var geocoder = NodeGeocoder(options);
 
 
 //INDEX - show all campgrounds
@@ -92,9 +91,9 @@ router.post("/", middlware.isLoggedIn, upload.single("image"),  function(req, re
             req.flash("error", "Invalid address");
             return res.redirect("back");
         }
-        req.body.campground.lat = data.results[0].geometry.location.lat;
-        req.body.campground.lng = data.results[0].geometry.location.lng;
-        req.body.campground.location = data.results[0].formatted_address;
+        req.body.campground.lat = data[0].latitude;
+        req.body.campground.lng = data[0].longitude;
+        req.body.campground.location = data[0].formattedAddress;
         cloudinary.uploader.upload(req.file.path, function(result) {
           // add cloudinary url for the image to the campground object under image property
           req.body.campground.image = result.secure_url;
@@ -151,9 +150,9 @@ router.put("/:id", upload.single("image"), function(req, res){
         req.flash("error", "Invalid address");
         return res.redirect("back");
     } 
-    req.body.campground.lat = data.results[0].geometry.location.lat;
-    req.body.campground.lng = data.results[0].geometry.location.lng;
-    req.body.campground.location = data.results[0].formatted_address;
+    req.body.campground.lat = data[0].latitude;
+    req.body.campground.lng = data[0].longitude;
+    req.body.campground.location = data[0].formattedAddress;
     cloudinary.uploader.upload(req.file.path, function(result) {
         req.body.campground.image = result.secure_url;
         req.body.campground.author = {

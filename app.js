@@ -17,7 +17,7 @@ campgroundRoutes    = require("./routes/campgrounds"),
 indexRoutes         = require("./routes/index"),
 contactRoutes       = require("./routes/contact");
 
-mongoose.connect("mongodb://localhost/camp_side_v1");
+mongoose.connect("mongodb://localhost/camp_side_v2");
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));

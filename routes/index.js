@@ -3,10 +3,40 @@ router      = express.Router(),
 passport    = require("passport"),
 User        = require("../models/user"),
 Campground  = require("../models/campground"),
+Comment     = require("../models/comment"),
 async       = require("async"),
 nodemailer  = require("nodemailer"),
 crypto      = require("crypto"),
-request     = require("request");
+request     = require("request"),
+multer      = require("multer"),
+methodOverride  = require("method-override"),
+session = require('express-session');
+
+router.use(methodOverride("_method"));
+// IMAGE UPLOAD CONFIGURATION
+var storage = multer.diskStorage({
+  filename: function(req, file, callback) {
+    callback(null, Date.now() + file.originalname);
+}
+});
+var imageFilter = function (req, file, cb) {
+    // accept image files only
+    if (!file.originalname.match(/\.(jpg|jpeg|png|gif)$/i)) {
+        return cb(new Error('Only image files are allowed!'), false);
+    }
+    cb(null, true);
+};
+var upload = multer({ storage: storage, fileFilter: imageFilter})
+
+var cloudinary = require('cloudinary');
+cloudinary.config({ 
+  cloud_name: process.env.CLOUDINARY_NAME, 
+  api_key: process.env.CLOUDINARY_API_KEY, 
+  api_secret: process.env.CLOUDINARY_API_SECRET
+});
+
+
+
 
 //ROOT ROUTE
 router.get("/", function(req, res){
@@ -46,7 +76,8 @@ router.post("/register", function(req, res){
         username: req.body.username,
         firstName: req.body.firstName,
         lastName: req.body.lastName,
-        email: req.body.email
+        email: req.body.email,
+        bio: req.body.bio
       });
       newUser.avatar = "/images/no-user-image-square.jpg";
       if(req.body.adminCode === process.env.ADMINCODE){
@@ -215,9 +246,9 @@ router.post('/reset/:token', function(req, res) {
 //USERS PROFILE
 router.get("/users/:id", function(req, res) {
   User.findById(req.params.id, function(err, foundUser){
-    if(err){
+    if(err || !foundUser){
       req.flash("error","Something went wrong.");
-      res.redirect("/");
+      return res.redirect("/");
     }
         //find all the posts of a user
         Campground.find().where("author.id").equals(foundUser._id).exec(function (err, campgrounds ){
@@ -229,6 +260,74 @@ router.get("/users/:id", function(req, res) {
         });
       });
 });
+
+//add middleware
+router.get("/users/:id/edit", function(req, res) {
+  User.findById(req.params.id, function(err, user) {
+      if(err || !user){
+        //or not the owner
+        console.log(err);
+        req.flash("error","Something went wrong.");
+        return res.redirect("back");
+      }
+      Campground.find().where("author.username").equals(user.username).exec(function (err, campgrounds){
+        if (err){
+          req.flash("error","Something went wrong.");
+          res.redirect("/");
+        }
+        res.render("users/edit", {user: user, campgrounds: campgrounds});
+      });
+      
+  });
+  
+});
+
+
+//PUT - UPDATE USER PROFILE IN THE DB
+// router.put("/users/:id", function(req, res){
+//   // cloudinary.uploader.upload(req.file.path, function(result){
+//     // req.body.user.avatar = result.secure_url;
+//     User.findByIdAndUpdate(req.params.id, {$set: req.body.user}, function(err, user){
+//       if (err){
+//         req.flash("error", err.message);
+//         return res.redirect("back");
+//       }
+//       Campground.update({_id: author._id}, {$set: {author.username: user.username}});
+//       req.flash("success", "Your profile is updated!");
+//       res.redirect("/users/" + user._id);
+//       });
+
+// });
+
+
+router.put("/users/:id", function(req, res){
+  User.findByIdAndUpdate(req.params.id, {$set: req.body.user}, {new: true}, function(err, user){
+    if(err || !user){
+      req.flash("error", err.message);
+      return res.redirect("back");
+    }
+    Campground.update({"author.id": user._id}, {$set: {"author.username": user.username}}, function(err, updatedCampground){
+      if(err){
+        return res.redirect("back"); 
+      }
+      Comment.update({"author.id": user._id}, {$set: {"author.username":user.username}}, function(err, updatedComment){
+        if(err){
+          return res.redirect("back");
+        }
+        req.login(user, function(err){
+          if (err){
+            return res.redirect("back");
+          }
+        });
+        req.flash("success", "Your profile is updated!");
+        res.redirect("/users/" + user._id);
+      });
+    });
+  });
+});
+
+
+
 
 
 

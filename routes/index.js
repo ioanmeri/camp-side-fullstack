@@ -10,6 +10,7 @@ crypto      = require("crypto"),
 request     = require("request"),
 multer      = require("multer"),
 methodOverride  = require("method-override"),
+middleware      = require("../middleware");
 session = require('express-session');
 
 router.use(methodOverride("_method"));
@@ -244,7 +245,7 @@ router.post('/reset/:token', function(req, res) {
 
 
 //USERS PROFILE
-router.get("/users/:id", function(req, res) {
+router.get("/users/:id", middleware.isLoggedIn, function(req, res) {
   User.findById(req.params.id, function(err, foundUser){
     if(err || !foundUser){
       req.flash("error","Something went wrong.");
@@ -262,11 +263,9 @@ router.get("/users/:id", function(req, res) {
 });
 
 //add middleware
-router.get("/users/:id/edit", function(req, res) {
+router.get("/users/:id/edit", middleware.checkProfileOwnership, function(req, res) {
   User.findById(req.params.id, function(err, user) {
       if(err || !user){
-        //or not the owner
-        console.log(err);
         req.flash("error","Something went wrong.");
         return res.redirect("back");
       }
@@ -283,22 +282,6 @@ router.get("/users/:id/edit", function(req, res) {
 });
 
 
-//PUT - UPDATE USER PROFILE IN THE DB
-// router.put("/users/:id", function(req, res){
-//   // cloudinary.uploader.upload(req.file.path, function(result){
-//     // req.body.user.avatar = result.secure_url;
-//     User.findByIdAndUpdate(req.params.id, {$set: req.body.user}, function(err, user){
-//       if (err){
-//         req.flash("error", err.message);
-//         return res.redirect("back");
-//       }
-//       Campground.update({_id: author._id}, {$set: {author.username: user.username}});
-//       req.flash("success", "Your profile is updated!");
-//       res.redirect("/users/" + user._id);
-//       });
-
-// });
-
 
 router.put("/users/:id", function(req, res){
   User.findByIdAndUpdate(req.params.id, {$set: req.body.user}, {new: true}, function(err, user){
@@ -314,17 +297,27 @@ router.put("/users/:id", function(req, res){
         if(err){
           return res.redirect("back");
         }
-        req.login(user, function(err){
-          if (err){
+        user.save(function(err){
+          if(err){
             return res.redirect("back");
           }
+          req.login(user, function(err){
+            if (err){
+              return res.redirect("back");
+            }
+            req.flash("success", "Your profile is updated!");
+            res.redirect("/users/" + user._id);
         });
-        req.flash("success", "Your profile is updated!");
-        res.redirect("/users/" + user._id);
+        });
       });
     });
   });
 });
+
+
+
+
+
 
 
 

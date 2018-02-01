@@ -23,6 +23,7 @@
             <input class="form-control" type="text" name="user[username]" value="<%= user.username %>">'s campgrounds
         </h3>
         <ul>
+        
         <% campgrounds.forEach(function(campground){ %>
             <li><a href="/campgrounds/<%= campground.id %>"><%= campground.name %></a></li>
         <% }) %>

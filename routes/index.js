@@ -78,7 +78,9 @@ router.post("/register", function(req, res){
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         email: req.body.email,
-        bio: req.body.bio
+        city: req.body.city,
+        birthday: req.body.birthday,
+        bio: req.body.bio,
       });
       newUser.avatar = "/images/no-user-image-square.jpg";
       if(req.body.adminCode === process.env.ADMINCODE){
@@ -261,6 +263,7 @@ router.get("/users/:id", middleware.isLoggedIn, function(req, res) {
         });
       });
 });
+
 
 //add middleware
 router.get("/users/:id/edit", middleware.checkProfileOwnership, function(req, res) {

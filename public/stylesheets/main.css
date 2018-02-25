@@ -43,3 +43,85 @@
 .ion-icon {
     font-size: 20px; 
 }
+
+#search-input::-webkit-input-placeholder {
+   text-align: center;
+}
+
+#search-input::-moz-placeholder { /* Firefox 18- */
+   text-align: center;  
+}
+
+#search-input::-moz-placeholder {  /* Firefox 19+ */
+   text-align: center;  
+}
+
+#search-input::-ms-input-placeholder {  
+   text-align: center; 
+}
+
+.login-userinput{margin-bottom: 10px;}
+.login-button{margin:10px auto;}
+.login-form{width:390px;}
+
+
+.form-control { margin-bottom: 10px; }
+
+
+.register-form{width:666px;}
+@media screen and (max-width: 767px) and (min-width: 0px) {
+    .register-form {
+        width:390px;
+    }
+    
+    .g-recaptcha {
+        /*transform:scale(0.77);*/
+        transform: translateX(-60px);
+        /*-webkit-transform:scale(0.77);*/
+        /*transform-origin:0 0;*/
+        /*-webkit-transform-origin:0 0;*/
+    }
+    
+}
+
+#datepicker{width:180px; margin: 0 20px 20px 20px;}
+#datepicker > span:hover{cursor: pointer;}
+
+
+.register-label {
+    display: block;
+    text-align: center;
+}
+
+
+#captcha{
+    width: 50%;
+    margin: 20px auto;
+}
+
+input.reg-input[type="text"]:focus,
+input.reg-input[type="password"]:focus,
+input.reg-input[type="email"]:focus{   
+  border-color: #FFBB33;
+  box-shadow: 0 0 2px #FFBB33;
+  outline: 0 none;
+}
+
+.reg-text:focus {
+    outline: none !important;
+    border:1px solid #FFBB33;
+    box-shadow: 0 0 2px #FFBB33;
+}
+
+input.contact-input[type="text"]:focus,
+input.contact-input[type="email"]:focus{   
+  border-color: #00C851;
+  box-shadow: 0 0 2px #00C851;
+  outline: 0 none;
+}
+
+.contact-text:focus {
+    outline: none !important;
+    border:1px solid #00C851;
+    box-shadow: 0 0 2px #00C851;
+}

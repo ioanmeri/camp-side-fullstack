@@ -7,7 +7,9 @@
         <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">-->
         <link rel="stylesheet" type="text/css" href="/stylesheets/ionicons.css">
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
+        <link rel="stylesheet" type="text/css" href="/stylesheets/profile.css">
     </head>
     <body>
     <nav class="navbar navbar-default">
@@ -22,16 +24,16 @@
                 <a class="navbar-brand" href="/">CampSide</a>
             </div>
             
-            <div id="navbar" class="collapse navbar-collapse">
+            <div id="navbar" class="collapse navbar-collapse text-center">
               <ul class="nav navbar-nav">
-                <li class="<%= typeof page !== 'undefined' && page === 'campgrounds' ? 'active' : '' %>"><a href="/campgrounds"><i class="ion-icon ion-ios-home-outline"></i>  Home</a></li>
+                <li class="<%= typeof page !== 'undefined' && page === 'campgrounds' ? 'active' : '' %>"><a href="/campgrounds"><i class="glyphicon glyphicon-tent"></i>  Home</a></li>
               </ul>
         
               <ul class="nav navbar-nav navbar-right">
                 <li class="show-form">
                     <form action="/campgrounds" method="GET" class="form-inline">
                         <div class="form-group">
-                            <input type="text" name="search" placeholder="Campground search..." class="form-control search-text">
+                            <input type="text" name="search" placeholder="Campground search..." class="form-control search-text" id="search-input">
                             <input type="submit" value="Search" class="btn btn-default search-btn hidden-xs">
                         </div>                    
                     </form>
@@ -39,9 +41,9 @@
                   <% if(!currentUser){ %>
                       <li class="<%= typeof page !== 'undefined' && page === 'login' ? 'active' : '' %>"><a href="/login"><i class="ion-icon ion-person"></i>  Login</a></li>
                       <li class="<%= typeof page !== 'undefined' && page === 'register' ? 'active' : '' %>"><a href="/register"><i class="ion-icon ion-person-add"></i>  Sign Up</a></li>
-                      <li class="<%= typeof page !== 'undefined' && page === 'contact' ? 'active' : '' %>"><a href="/contact"><i class="ion-icon ion-paper-airplane"></i>  Contact Us</a></li>
+                      <li class="<%= typeof page !== 'undefined' && page === 'contact' ? 'active' : '' %>"><a href="/contact"><i class="ion-icon ion-paper-airplane "></i>  Contact Us</a></li>
                   <% } else { %>
-                      <li><a href="/users/<%= currentUser._id %>"><i class="ion-icon ion-person"></i>  Signed In As <%= currentUser.username %></a></li>
+                      <li><a href="/users/<%= currentUser._id %>"><i style="color: orange;" class="ion-icon ion-person"></i>  Signed In As <%= currentUser.username %></a></li>
                       <li><a href="/logout"><i class="ion-icon ion-android-exit"></i>  Logout</a></li>
                       <li><a href="/contact"><i class="ion-icon ion-paper-airplane"></i>  Contact Us</a></li>
                   <% } %>

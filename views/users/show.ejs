@@ -1,31 +1,125 @@
 <% include ../partials/header %>
 <div class="row">
-    <div class="col-md-4">
-        <h1><%= user.firstName + " " + user.lastName%></h1>
-        <div class="thumbnail">
-            <img src="<%= user.avatar %>" alt="user profile image">
-            <div class="caption"><a href="mailto:<%= user.email %>"><%= user.email %></a></div>
+    
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#1" data-toggle="tab"><i class="ion-icon ion-ios-body"></i>  Profile</a></li>
+      <li><a href="#2" data-toggle="tab"><i class="ion-icon ion-flag"></i>Campgrounds</a></li>
+      <li><a href="#3" data-toggle="tab"><i class="ion-icon ion-edit"></i>  Messages</a></li>
+    </ul>
+    
+    <div class="tab-content no-border padding-24">
+        <div class="tab-pane active" id="1">
+            <div class="row">
+                <div class="col-xs-12 col-sm-3 text-center">
+                    <span class="profile-picture">
+                        <img class="img-responsive" alt=" Avatar" src="<%= user.avatar %>">
+                    </span>
+        
+                </div> 
+                
+                <div class="col-xs-12 col-sm-9">  
+                    <h3 class="blue">
+                            <%= user.firstName + " " + user.lastName%>
+                    </h3>
+                    <div class="profile-user-info">
+                       		<div class="profile-info-row">
+								<div class="profile-info-name"> Username </div>
+
+								<div class="profile-info-value">
+									<span><%= user.username %></span>
+								</div>
+							</div>
+							
+							<div class="profile-info-row">
+								<div class="profile-info-name"> Location </div>
+
+								<div class="profile-info-value">
+									<i class="ion-location"></i>
+									<span><%= user.city %></span>
+								</div>
+							</div>
+							
+							
+							<div class="profile-info-row">
+        						<div class="profile-info-name"> Age </div>
+        
+        						<div class="profile-info-value">
+        							<span>
+        							    <!--can be more precise, refactor-->
+        							    <% var now = new Date();
+        							        var age =  now.getFullYear() - user.birthday.substring(6,10)%>
+        							    <%= age%>
+        							</span>
+        						</div>
+        					</div>
+        					
+    						<div class="profile-info-row">
+								<div class="profile-info-name"> Email </div>
+
+								<div class="profile-info-value">
+									<span><%= user.email%></span>
+								</div>
+							</div>
+							
+							
+							   <% if(currentUser && user._id.equals(currentUser._id)) { %>
+                                <h3>
+                                    <a href="/users/<%=user._id%>/edit" style="text-decoration: none">
+                                         <input name="edit-profile" class="btn btn-sm btn-danger btn-block" value="Edit" readonly></a>
+                                <% } %>
+                                </h3>
+                           
+                    </div>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+            
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+            		<div class="widget-box transparent">
+						
+							<h4 class="widget-title smaller">
+								<i class="ace-icon fa fa-check-square-o bigger-110"></i>
+								Little About Me
+							</h4>
+						
+
+						<div class="widget-body">
+							<div class="widget-main">
+								<p>
+				                <%= user.bio %>
+								</p>
+							</div>
+						</div>
+					</div>
+                </div>
+            </div>
+            
+        </div><!-- ./div =1 -->
+        
+        <div class="tab-pane" id="2">
+                <% if(campgrounds.length === 0){%>
+                    <h4>No campgrounds to show</h4>
+                <% } else {%>
+                    <h3><span class="blue"><%= user.username%></span>'s Campgrounds</h3>
+                    <ul>
+                        <% campgrounds.forEach(function(campground){ %>
+                            <li><a href="/campgrounds/<%= campground.id %>"><%= campground.name %></a></li>
+                        <% }) %>
+                    </ul>
+                <% }%>
+        
         </div>
-        <div>
-            <%= user.bio %>
+        <div class="tab-pane" id="3">
+            <h3>don' say anything else</h3>
         </div>
     </div>
-    <div class="col-md-6">
-        <h3><%= user.username %>'s campgrounds</h3>
-        <ul>
-        <% campgrounds.forEach(function(campground){ %>
-            <li><a href="/campgrounds/<%= campground.id %>"><%= campground.name %></a></li>
-        <% }) %>
-        </ul>
-    </div>
-    <div class="col-md-2">
-       <% if(currentUser && user._id.equals(currentUser._id)) { %>
-        <h3>
-            <a href="/users/<%=user._id%>/edit" style="text-decoration: none">
-                 <input name="edit-profile" class="btn btn-sm btn-danger btn-block" value="Edit Profile" readonly></a>
-        <% } %>
-        </h3>
-    </div>
+    
+
+  
+    
+
+
+  
 </div>
 <% include ../partials/footer %>
 

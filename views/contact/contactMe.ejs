@@ -1,34 +1,58 @@
 <% include ../partials/header %>
-  <div class="row">
-    <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-8 col-xs-offset-2">
-      <h1 class="text-center">Contact</h1>
-      <form action="/contact/send" method="post" id="form">
-        <div class="messages"> </div>
-        <div class="controls">
-          <div class="form-group">
-            <label class="" for="form_name">Name</label>
-            <input type="text" class="form-control" id="form_name" name="name" placeholder="Enter Name" required="required" data-error="Your Name is Required">
-         </div>
-          <div class="form-group">
-            <label class="" for="form_phone">Phone</label>
-            <input type="tel" class="form-control" id="form_phone" name="phone" placeholder="Phone" required="required" data-error="Your Phone Number is Required">
-          </div>
-          <div class="form-group">
-            <label class="" for="form_email">Email</label>
-            <input type="email" class="form-control" id="form_email" name="email" placeholder="Your Email Address" required="required" data-error="Your Email is Required">
-          </div>
-          <div class="form-group">
-            <label class="" for="form_message">Message</label>
-            <textarea class="form-control" id="form_message" name="message" placeholder="Enter Message Here" rows="4" required="required" data-error="Please, leave us a message."></textarea>
-          </div>
-          <div class="form-group">
-            <div id="captcha1" class="g-recaptcha form-group" data-sitekey="6LfIu0EUAAAAAN-CoT0y4_UfU2D5W1Et4j-axuKq"></div>
-          </div>
-          <div class="form-group">
-            <button class="btn btn-lg btn-primary btn-block">Send Email</button>
-          </div>
-      </form>
-      <a href="/campgrounds">Go Back</a>
-      </div>
-    </div>
+<div class="container register-form">
+    <h1 style="text-align: center"><i class="ion-paper-airplane" style="color: #00CB51;"></i>  Contact Us</h1>
+       
+    <div class="panel panel-default">
+        <div class="panel-body">
+        
+            <form action="/contact/send" method="post">
+                
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="input-group login-userinput">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                            <input class="form-control contact-input" type="text" name="name" placeholder="Fullname" required autofocus />
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="input-group login-userinput">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+                            <input class="form-control contact-input" type="email" name="email" placeholder="Email" required data-error="Your Email is Required"/>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="input-group login-userinput">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-phone-alt"></span></span>
+                            <input class="form-control contact-input" name="phone" placeholder="Phone Number" type="text" />
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="row img-responsive center-block">
+                    <label class="register-label " for="bio">Messsage</label>
+                    <div class="col-xs-12">
+                        <textarea class="form-control contact-text" name="message" rows="5" cols="10" style="resize: vertical;" placeholder="Enter your message here.." required data-error="Please, leave us a message."></textarea>
+                    </div>
+                </div>
+                
+                
+            </div> <!-- panel body -->
+        </div><!-- panel -->
+            
+                <div>
+                    <div id="captcha" class="g-recaptcha" data-sitekey="6LfIu0EUAAAAAN-CoT0y4_UfU2D5W1Et4j-axuKq"></div>
+                </div>
+                
+                <div class="form-group">
+                    <button class="btn btn-lg btn-success btn-block"> Send Email!</button>
+                </div>
+            
+            </form>
+        <a href="/campgrounds">Go Back</a>
+</div>
+
 <% include ../partials/footer %>

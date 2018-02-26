@@ -63,7 +63,6 @@ router.post("/register", function(req, res){
   }
     // secret key
     var secretKey = process.env.CAPTCHA;
-    console.log(secretKey);
     // Verify URL
     var verifyURL = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${captcha}&remoteip=${req.connection.remoteAddress}`;
     // Make request to Verify URL

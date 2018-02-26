@@ -61,17 +61,17 @@ router.post("/register", function(req, res){
   //   req.flash("error", "Please select captcha");
   //   return res.redirect("/register");
   // }
-    // // secret key
+    // secret key
     // var secretKey = process.env.CAPTCHA;
     // // Verify URL
     // var verifyURL = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${captcha}&remoteip=${req.connection.remoteAddress}`;
     // // Make request to Verify URL
     // request.get(verifyURL, (err, response, body) => {
-    //   // if not successful
-    //   if (body.success !== undefined && !body.success) {
-    //     req.flash("error", "Captcha Failed");
-    //     return res.redirect("/register");
-    //   }
+      // if not successful
+      // if (body.success !== undefined && !body.success) {
+      //   req.flash("error", "Captcha Failed");
+      //   return res.redirect("/register");
+      // }
       var newUser = new User(
       {
         username: req.body.username,
@@ -96,7 +96,7 @@ router.post("/register", function(req, res){
           res.redirect("/campgrounds");
         });
       });
-    });
+    // });
   });
 
 //SHOW LOGIN FORM

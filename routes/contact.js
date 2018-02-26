@@ -9,24 +9,24 @@ router.get("/", function(req, res) {
 });
 
 router.post("/send", function(req, res) {
-  const captcha = req.body["g-recaptcha-response"];
-  if (!captcha) {
-    console.log(req.body);
-    req.flash("error", "Please select captcha");
-    return res.redirect("back");
-  }
-    // secret key
-    var secretKey = process.env.CAPTCHA;
-    // Verify URL
-    var verifyURL = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${captcha}&remoteip=${req
-      .connection.remoteAddress}`;
-    // Make request to Verify URL
-    request.get(verifyURL, (err, response, body) => {
-      // if not successful
-      if (body.success !== undefined && !body.success) {
-        req.flash("error", "Captcha Failed");
-        return res.redirect("/contact");
-      }
+  // const captcha = req.body["g-recaptcha-response"];
+  // if (!captcha) {
+  //   console.log(req.body);
+  //   req.flash("error", "Please select captcha");
+  //   return res.redirect("back");
+  // }
+  //   // secret key
+  //   var secretKey = process.env.CAPTCHA;
+  //   // Verify URL
+    // var verifyURL = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${captcha}&remoteip=${req
+    //   .connection.remoteAddress}`;
+    // // Make request to Verify URL
+    // request.get(verifyURL, (err, response, body) => {
+    //   // if not successful
+    //   if (body.success !== undefined && !body.success) {
+    //     req.flash("error", "Captcha Failed");
+    //     return res.redirect("/contact");
+    //   }
       var smtpTransport = nodemailer.createTransport({
         service: 'Gmail', 
         auth: {
@@ -55,7 +55,7 @@ router.post("/send", function(req, res) {
           
         }
       });
-    });
+    // });
   });
 
 module.exports = router;

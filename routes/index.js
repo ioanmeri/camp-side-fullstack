@@ -53,7 +53,7 @@ router.get("/register", function(req, res) {
   res.render("register", {page: "register"});
 });
 
-//HANDLE SIGN IN LOGIC
+//HANDLE SIGN UP LOGIC
 router.post("/register", function(req, res){
   const captcha = req.body["g-recaptcha-response"];
   if (!captcha) {

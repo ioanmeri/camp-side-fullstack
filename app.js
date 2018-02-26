@@ -17,9 +17,8 @@ campgroundRoutes    = require("./routes/campgrounds"),
 indexRoutes         = require("./routes/index"),
 contactRoutes       = require("./routes/contact");
 
-mongoose.connect("mongodb://localhost/camp_side_v2");
-
-mongodb://ioanmeri:campicorn24@ds249128.mlab.com:49128/camp-side
+var url = process.env.DATABASEURL || "mongodb://localhost/camp_side_v3"
+mongoose.connect(url);
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");

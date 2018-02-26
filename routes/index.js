@@ -62,7 +62,9 @@ router.post("/register", function(req, res){
     return res.redirect("/register");
   }
     // secret key
-    var secretKey = process.env.CAPTCHA;
+    var CAPTCHA = "6LfIu0EUAAAAAND84YYT1ZezkX3uZRZeN18vQ7Vz";
+    var secretKey = CAPTCHA;
+    // var secretKey = process.env.CAPTCHA;
     // Verify URL
     var verifyURL = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${captcha}&remoteip=${req.connection.remoteAddress}`;
     // Make request to Verify URL

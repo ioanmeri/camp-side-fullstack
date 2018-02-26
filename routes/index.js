@@ -60,7 +60,7 @@ router.post("/register", function(req, res){
   //   console.log(req.body);
   //   req.flash("error", "Please select captcha");
   //   return res.redirect("/register");
-  }
+  // }
     // // secret key
     // var secretKey = process.env.CAPTCHA;
     // // Verify URL

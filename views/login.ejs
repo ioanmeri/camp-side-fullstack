@@ -1,20 +1,20 @@
 <% include ./partials/header %>
-<div class="container login-form">
-    <h1 style="text-align: center"><i class="ion-flag text-primary"></i>  Login</h1>
-    <div class="panel panel-default">
+<div class="container login-form" style="background-color: #F8DC38;">
+    <h1 style="text-align: center; color: #3EE181;"><i class="ion-flag"></i>  Login</h1>
+    <div class="panel panel-default" style="background-color: #F8DC38;">
         <div class="panel-body">
 
             <form action="/login" method="post">
          
             	<div class="input-group login-userinput">
-    				<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-    				<input type="text" class="form-control" name="username" placeholder="Username" autofocus>
+    				<span class="input-group-addon"><span class="ion-icon ion-person" style="color: #3EE181;"></span></span>
+    				<input type="text" class="form-control login-input" name="username" placeholder="Username" autofocus>
     			</div>
     			
                 
                 <div class="input-group">
-    				<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-    					<input type="password" class="form-control" name="password" placeholder="Password">
+    				<span class="input-group-addon"><span class="ion-icon ion-lock-combination" style="color: #3EE181;"></span></span>
+    					<input type="password" class="form-control login-input" name="password" placeholder="Password">
                     </span>  
     			</div>
                 

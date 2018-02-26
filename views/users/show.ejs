@@ -3,8 +3,8 @@
     
     <ul class="nav nav-tabs">
       <li class="active"><a href="#1" data-toggle="tab"><i class="ion-icon ion-ios-body"></i>  Profile</a></li>
-      <li><a href="#2" data-toggle="tab"><i class="ion-icon ion-flag"></i>Campgrounds</a></li>
-      <li><a href="#3" data-toggle="tab"><i class="ion-icon ion-edit"></i>  Messages</a></li>
+      <li><a href="#2" data-toggle="tab"><i class="ion-icon ion-flag" style="color: #FF8800;"></i>Campgrounds</a></li>
+      <li><a href="#3" data-toggle="tab"><i class="ion-icon ion-edit" style="color: #007E33;"></i>  Messages</a></li>
     </ul>
     
     <div class="tab-content no-border padding-24">
@@ -31,7 +31,7 @@
 							</div>
 							
 							<div class="profile-info-row">
-								<div class="profile-info-name"> Location </div>
+								<div class="profile-info-name"> Hometown </div>
 
 								<div class="profile-info-value">
 									<i class="ion-location"></i>
@@ -64,8 +64,13 @@
 							
 							   <% if(currentUser && user._id.equals(currentUser._id)) { %>
                                 <h3>
+                                    <div class="edit-profile">
+                                    
                                     <a href="/users/<%=user._id%>/edit" style="text-decoration: none">
-                                         <input name="edit-profile" class="btn btn-sm btn-danger btn-block" value="Edit" readonly></a>
+                                         
+                                         <input name="edit-profile" class="btn btn-sm btn-danger btn-block" value="Edit" readonly />
+                                    </a>
+                                    </div>
                                 <% } %>
                                 </h3>
                            
@@ -100,12 +105,64 @@
                 <% if(campgrounds.length === 0){%>
                     <h4>No campgrounds to show</h4>
                 <% } else {%>
-                    <h3><span class="blue"><%= user.username%></span>'s Campgrounds</h3>
-                    <ul>
-                        <% campgrounds.forEach(function(campground){ %>
-                            <li><a href="/campgrounds/<%= campground.id %>"><%= campground.name %></a></li>
-                        <% }) %>
-                    </ul>
+                    <h3 style="color: #FF8800;"><%= user.username%>'s Campgrounds</h3>
+                    <div class="container">
+                        
+                        <table class="table">
+                            <tbody>
+                                <% campgrounds.forEach(function(campground){ %>
+                                    <tr>
+                                        <td>
+                                            <div class="col-xs-8 col-md-3">
+                                                <span class="profile-picture">
+                                                    <img class="img-responsive" alt=" Avatar" src="<%= campground.image %>">
+                                                </span>
+                                            </div>
+                                            
+                                            <div class="col-xs-12 col-md-9">
+                                                <a class="lead" style="color: #FF8800;" href="/campgrounds/<%= campground.id %>"><%= campground.name %></a>
+                                                
+                                                <div class="profile-user-info">
+                                                    
+                                                    <div class="profile-info-row">
+                        								<div class="camp-info-name"> Location </div>
+                        								<div class="profile-info-value">
+                        									<span><%= campground.location %></span>
+                        								</div>
+                        							</div>
+                        							
+                        							 <div class="profile-info-row">
+                        								<div class="camp-info-name"> Description </div>
+                        								<div class="profile-info-value">
+                        									<span><%= campground.description %></span>
+                        								</div>
+                        							</div>
+                        							
+                        							<div class="profile-info-row">
+                        								<div class="camp-info-name"> Price </div>
+                        								<div class="profile-info-value">
+                        									<span><%= campground.price %> &euro;</span>
+                        								</div>
+                        							</div>
+                        							
+                        						    <div class="profile-info-row">
+                        								<div class="camp-info-name"> Created At </div>
+                        								<div class="profile-info-value">
+                        									<span><%= campground.createdAt.toString().substring(0,15); %></span>
+                        								</div>
+                        							</div>
+                                                
+                                                </div>
+                                            </div><!-- col-xs-8 col-md-9 -->
+                                            
+                                            
+                                        </td>
+                                    </tr>
+                                <% }) %>
+                            </tbody>
+                        </table>
+                        
+                    </div>
                 <% }%>
         
         </div>

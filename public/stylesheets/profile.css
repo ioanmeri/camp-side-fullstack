@@ -25,19 +25,29 @@
 }
 
 .profile-info-name,
+.camp-info-name,
 .profile-info-value {
     display: table-cell;
     border-top: 1px dotted #D5E4F1
 }
 
-.profile-info-name {
+.profile-info-name,
+.camp-info-name {
     text-align: right;
-    padding: 6px 10px 6px 4px;
     font-weight: 400;
-    color: #667E99;
     background-color: transparent;
     width: 110px;
+}
+
+.profile-info-name {
+    padding: 6px 10px 6px 4px;
+    color: #667E99;
     vertical-align: middle
+}
+
+.camp-info-name {
+    padding: 6px 10px 6px 0;
+    color: #ffbb33;
 }
 
 .profile-info-value {

@@ -10,26 +10,30 @@
     </header>
    
     <div class="row text-center" style="display:flex; flex-wrap: wrap;">
-        <div class="col-md-12">
-            <% if (noMatch !== null) { %>
-                <h3><%= noMatch %></h3>
-            <% } %>
-        </div>
+        <% if (noMatch !== null) { %>
+            <div class="col-md-12">
+                    <h3><%= noMatch %></h3>
+            </div>
+        <% } %>
      
         <% campgrounds.forEach(function(camp){ %>
         <div class="col-md-3 col-sm-6">
             <div class="thumbnail">
-                <img src="<%= camp.image %>">
+                    <img src="<%= camp.image %>">
                 <div class="caption">
                     <h4><%= camp.name %></h4>
+                    <h5><%= camp.location %></h5>
+                    <p>
+                        <a href="/campgrounds/<%= camp._id %>" class="btn btn-primary btn-outline">More</a>
+                    </p>
                 </div>
-                <p>
-                    <a href="/campgrounds/<%= camp._id %>" class="btn btn-primary">More</a>
-                </p>
             </div>
+        
         </div>
         <% }); %>
+        
     </div>
+    
     <div class="row text-center">
         <% if (pages && pages > 0) { %>
         <ul class="pagination text-center">

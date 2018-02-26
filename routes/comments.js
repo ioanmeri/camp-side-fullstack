@@ -75,7 +75,7 @@ router.put("/:comment_id", middlware.checkCommentOwnership, function(req, res){
    if (err) {
      res.redirect("back");
    } else {
-     req.flash("success", "Comment deleted");
+     req.flash("success", "Comment Updated");
      res.redirect("/campgrounds/" + req.params.id);
    }
  });
@@ -89,6 +89,7 @@ router.delete("/:comment_id", middlware.checkCommentOwnership, function(req, res
       if (err) {
         res.redirect("back");
       } else {
+        req.flash("success", "Comment Deleted");  
         res.redirect("/campgrounds/" + req.params.id);
       }
     });

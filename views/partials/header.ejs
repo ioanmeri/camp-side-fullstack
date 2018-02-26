@@ -24,28 +24,32 @@
                 <a class="navbar-brand" href="/">CampSide</a>
             </div>
             
-            <div id="navbar" class="collapse navbar-collapse text-center">
-              <ul class="nav navbar-nav">
-                <li class="<%= typeof page !== 'undefined' && page === 'campgrounds' ? 'active' : '' %>"><a href="/campgrounds"><i class="glyphicon glyphicon-tent"></i>  Home</a></li>
-              </ul>
-        
-              <ul class="nav navbar-nav navbar-right">
-                <li class="show-form">
-                    <form action="/campgrounds" method="GET" class="form-inline">
+            <div id="navbar" class="collapse navbar-collapse ">
+                
+              <ul class="nav navbar-nav navbar-left">
+                <li class="<%= typeof page !== 'undefined' && page === 'campgrounds' ? 'active' : '' %> home-link"><a href="/campgrounds"><i class="ion-icon glyphicon glyphicon-tent"></i>  Home</a></li>
+                
+                <li>
+                    <form action="/campgrounds" method="GET" class="navbar-form form-inline search-form">
                         <div class="form-group">
-                            <input type="text" name="search" placeholder="Campground search..." class="form-control search-text" id="search-input">
+                            <input type="text" name="search" placeholder="Campground search..." class="form-control search-text">
                             <input type="submit" value="Search" class="btn btn-default search-btn hidden-xs">
                         </div>                    
                     </form>
                 </li>
+              
+              </ul>
+        
+              <ul class="nav navbar-nav navbar-right">
+              
                   <% if(!currentUser){ %>
-                      <li class="<%= typeof page !== 'undefined' && page === 'login' ? 'active' : '' %>"><a href="/login"><i class="ion-icon ion-person"></i>  Login</a></li>
-                      <li class="<%= typeof page !== 'undefined' && page === 'register' ? 'active' : '' %>"><a href="/register"><i class="ion-icon ion-person-add"></i>  Sign Up</a></li>
-                      <li class="<%= typeof page !== 'undefined' && page === 'contact' ? 'active' : '' %>"><a href="/contact"><i class="ion-icon ion-paper-airplane "></i>  Contact Us</a></li>
+                      <li class="<%= typeof page !== 'undefined' && page === 'login' ? 'active' : '' %>"><a class="login-link" href="/login"><i class="ion-icon ion-person"></i>  Login</a></li>
+                      <li class="<%= typeof page !== 'undefined' && page === 'register' ? 'active' : '' %>"><a class="register-link" href="/register"><i class="ion-icon ion-person-add"></i>  Sign Up</a></li>
+                      <li class="<%= typeof page !== 'undefined' && page === 'contact' ? 'active' : '' %>"><a class="contact-link" href="/contact"><i class="ion-icon ion-paper-airplane"></i>  Contact Us</a></li>
                   <% } else { %>
-                      <li><a href="/users/<%= currentUser._id %>"><i style="color: orange;" class="ion-icon ion-person"></i>  Signed In As <%= currentUser.username %></a></li>
-                      <li><a href="/logout"><i class="ion-icon ion-android-exit"></i>  Logout</a></li>
-                      <li><a href="/contact"><i class="ion-icon ion-paper-airplane"></i>  Contact Us</a></li>
+                      <li><a href="/users/<%= currentUser._id %>"><i style="color: #FFBB33;" class="ion-icon ion-person"></i>  Signed In As <%= currentUser.username %></a></li>
+                      <li><a class="logout-link" href="/logout"><i class="ion-icon ion-android-exit"></i>  Logout</a></li>
+                      <li><a class="contact-link" href="/contact"><i class="ion-icon ion-paper-airplane"></i>  Contact Us</a></li>
                   <% } %>
               </ul>
             </div>

@@ -1,16 +1,166 @@
-/*all image tags inside thumbnails*/
-
-
-.thumbnail img {
-    width: 100%;
+/*BUTTONS*/
+.btn {
+  border-radius: 15px;
+  outline: none !important;
+  box-shadow: none;
+  transition: background-color .2s, border .2s, color .2s;
 }
+
+.btn-outline {
+    background-color: transparent;
+    color: inherit;
+    transition: all .2s;
+}
+
+.btn-primary.btn-outline {
+    color: #428bca;
+}
+
+.btn-primary.btn-outline:hover,
+.btn-success.btn-outline:hover,
+.btn-info.btn-outline:hover,
+.btn-warning.btn-outline:hover,
+.btn-danger.btn-outline:hover {
+    color: #fff;
+}
+
+
+/*----- LINKS NAVBAR -----------*/
+.home-link:hover .glyphicon-tent{
+    color: #2BBBAD;
+}
+
+.login-link:hover .ion-person {
+    color: #428bca;
+}
+
+.register-link:hover .ion-person-add {
+    color: #FFBB33;
+}
+
+.contact-link:hover .ion-paper-airplane {
+    color: #00CB51;
+}
+
+.logout-link:hover .ion-android-exit {
+    color: #ff4444;
+}
+
+
+.navbar .navbar-collapse {
+  text-align: center;
+}
+
+/*CENTER SEARCH FORM PLACEHOLDER*/
+.search-text::-webkit-input-placeholder {
+   text-align: center;
+}
+
+.search-text::-moz-placeholder { /* Firefox 18- */
+   text-align: center;  
+}
+
+.search-text::-moz-placeholder {  /* Firefox 19+ */
+   text-align: center;  
+}
+
+.search-text::-ms-input-placeholder {  
+   text-align: center; 
+}
+
+
+
+/*COLLAPSE EARLIER*/
+@media (max-width: 993px) {
+        .navbar-header {
+                float: none;
+        }
+        .navbar-toggle {
+                display: block;
+        }
+        .navbar-collapse {
+                border-top: 1px solid transparent;
+                box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+        }
+        .navbar-collapse.collapse {
+                display: none!important;
+        }
+        .navbar-collapse.collapse.in {
+            display: block!important;
+        }
+        .navbar-nav {
+                float: none!important;
+                margin: 7.5px 0;
+                /*margin: 7.5px -15px;*/
+        }
+        .navbar-nav>li {
+                float: none;
+        }
+        .navbar-nav>li>a {
+                padding-top: 10px;
+                padding-bottom: 10px;
+        }
+        .navbar-form {
+            padding: 10px 15px;
+            margin-top: 8px;
+            /*margin-right: -15px;*/
+            margin-bottom: 8px;
+            /*margin-left: -15px;*/
+            border-top: 1px solid transparent;
+            border-bottom: 1px solid transparent;
+            -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1), 0 1px 0 rgba(255, 255, 255, .1);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1), 0 1px 0 rgba(255, 255, 255, .1);
+            width:auto;
+            float:none!important;
+        }
+        .search-btn{
+            display:none;
+        }
+}
+
+.navbar-default {
+background: #ECE9E6;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.navbar {
+    border: none;
+    border-radius: 0;
+}
+
+.navbar-brand,
+.search-form {
+    transform: translateY(2px);
+}
+
+.search-text:focus ~ .search-btn {
+    opacity: 1;
+}
+
+.search-btn {
+    opacity: 0;
+    transform: translateY(-4px);
+}
+
+
+
+/*IMAGE THUMBNAILS*/
 
 .thumbnail {
-    padding: 0;
+  border: 1px solid rgba(160,160,160,0.2);
+  background: white;
+  border-radius: 0 0 2px 2px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
 }
 
-/*class inside class*/
-.thumbnail .caption-full {
+.thumbnail a > img {
+  border-radius: 100%;
+  height: 60%;
+  border: solid 5px #cccccc;
+}
+
+.thumbnail .caption {
     padding: 9px;
 }
 
@@ -18,55 +168,25 @@
     display: inline;
 }
 
+
+
 /* Google Maps */
 #map {
     height: 400px;
     width: 100%;
 }
 
-.navbar-right form {
-   margin-top: 3.5%;
-}
-
-
-.search-text:focus ~ .search-btn {
-    opacity: 1;
-    
-}
-
-.search-btn {
-    opacity: 0;
-    float: left;
-    margin-right: 5px;
-}
-
 .ion-icon {
     font-size: 20px; 
 }
 
-#search-input::-webkit-input-placeholder {
-   text-align: center;
-}
 
-#search-input::-moz-placeholder { /* Firefox 18- */
-   text-align: center;  
-}
-
-#search-input::-moz-placeholder {  /* Firefox 19+ */
-   text-align: center;  
-}
-
-#search-input::-ms-input-placeholder {  
-   text-align: center; 
-}
-
+/*LOGIN, SIGN UP, CONTACT FORMS*/
 .login-userinput{margin-bottom: 10px;}
 .login-button{margin:10px auto;}
 .login-form{width:390px;}
 
-
 .form-control { margin-bottom: 10px; }
-
 
 .register-form{width:666px;}
 @media screen and (max-width: 767px) and (min-width: 0px) {
@@ -87,12 +207,10 @@
 #datepicker{width:180px; margin: 0 20px 20px 20px;}
 #datepicker > span:hover{cursor: pointer;}
 
-
 .register-label {
     display: block;
     text-align: center;
 }
-
 
 #captcha{
     width: 50%;

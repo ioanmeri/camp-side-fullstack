@@ -7,7 +7,7 @@ body {
   z-index: 1;
   position: relative;
   text-align: center;
-  padding-top: 40vh;
+  padding-top: 30vh;
 }
 
 #landing-header h1 {
@@ -17,22 +17,28 @@ body {
   letter-spacing: 1px;
   word-spacing: 3px;
   margin-bottom: 20px;
-  
+}
+
+a:link,
+a,
+a:visited {
+  color: #fff;
+  text-decoration:none;
 }
 
 .btn-l {
   display: inline-block;
   padding: 10px 30px;
-  border-radius: 100px;
+  border-radius: 50%;
   letter-spacing: 1px;
   transition: background-color 0.2s, border 0.2s, color 0.2s;
 }
 
 .btn-landing:link,
 .btn-landing:visited {
+  border-radius: 100px;
   background-color: #e67e22;
   border: 1px solid #e67e22;
-  text-decoration: none;
   color: #fff;
 }
 
@@ -43,6 +49,7 @@ body {
   font-weight: 400;
   border: 1px solid #bf6d17;
 }
+
 .slideshow { 
   position: fixed;
   width: 100%;

@@ -1,15 +1,19 @@
-$(document).load(function(){
- $('.card-image').find('img').each(function(){
-  var imgClass = (this.width/this.height > 1) ? 'wide' : 'tall';
+$(document).ready(function(){
+    
+$("img.scale").imageScale();    
+    
+//  $('.card-image').find('img').each(function(){
+//   var imgClass = (this.width/this.height > 1) ? 'wide' : 'tall';
   
-  $(this).addClass(imgClass);
+//   $(this).addClass(imgClass);
   
-//   $(this).css("width", this.width * 2);
+  
 //   $(this).css("height", this.width * 2);
   
-  var width = $(this).width();    // Current image width
-  var height = $(this).height();  // Current image height
-  
+//   var width = $(this).width();    // Current image width
+//   var height = $(this).height();  // Current image height
+ 
+
   
   
 //   if (width > height){
@@ -34,10 +38,6 @@ $(document).load(function(){
     //     $(this).css("width", width * ratio);    // Scale width based on ratio
     //     width = width * ratio;    // Reset width to match scaled image
     // }
-  
-  
-  
-  
-  
- })
+ 
+//  })
 })

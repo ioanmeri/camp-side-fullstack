@@ -19,35 +19,28 @@
         </div>
     <% } %>
     
-    <div class="container-fluid ">
+    <div class="container">
         
-        <div class="row row-eq-height my-card-row">  
+        <% campgrounds.forEach(function(camp, i){ %>
         
-            <% campgrounds.forEach(function(camp, i){ %>
             
-                <!--<div class="col-md-3 col-sm-6 col-lg-2 ">-->
-                    <div class="thumbnail my-card">
-                        <div class="card-image">
-                            <img src="<%= camp.image %>">
-                        </div>
-                        <div class="caption">
-                            <h4><%= camp.name %></h4>
-                            <h5><%= camp.location %></h5>
-                            <p>
-                                <a href="/campgrounds/<%= camp._id %>" class="btn btn-primary btn-outline">More</a>
-                            </p>
-                        </div>
+            <div class="col-sm-6 col-sm-offset-0 col-md-4 col-lg-3">
+                <div class="thumbnail my-card">
+                    <div class="card-image">
+                        <img class="scale" src="<%= camp.image %>">
                     </div>
-                    <!--</div>-->
-                    <% if  ((i+1) % 6 == 0 ) { %>
-                        </div><div class="row row-eq-height my-card-row">
-                    <% } %>
-                
-            <% }); %>
+                    <div class="caption">
+                        <h4><%= camp.name %></h4>
+                        <h5><%= camp.location %></h5>
+                        <p>
+                            <a href="/campgrounds/<%= camp._id %>" class="btn btn-primary btn-outline">More</a>
+                        </p>
+                    </div>
+                </div>
+             </div>
+
+        <% }); %>
             
-        </div> 
-    
-    
     </div> 
 </div>
     

@@ -11,14 +11,21 @@
 /*GREEN : #3EE181*/
 /*PURPLE: #383DF8*/
 
+/* REPLACE IN MY-BOOTSTRAAP */
+.row {
+ margin-right: 0px;
+}
+ 
+
+
 /*GLOBAL*/
 
-* {
-    margin: 0;
-    padding: 0;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-}
+/** {*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    -webkit-box-sizing: border-box;*/
+/*    box-sizing: border-box;*/
+/*}*/
 
 html,
 body {
@@ -82,29 +89,7 @@ body {
     background-size: cover;
 }
 
-
-
-
-/*.btn:focus, .btn:active:focus, .btn.active:focus {*/
-/*    outline: 0 none;*/
-/*}*/
-
-/*.btn-primary {*/
-/*    background: #3EE181;*/
-/*    color: #ffffff;*/
-/*    border-color: #3EE181;*/
-/*}*/
  
-/*.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {*/
-/*    background: #22db6e;*/
-/*    border-color: #22db6e;*/
-/*}*/
- 
-/*.btn-primary:active, .btn-primary.active {*/
-/*    background: #007299;*/
-/*    box-shadow: none;*/
-/*}*/
-
 
 a {
     color: #383DF8;
@@ -183,6 +168,21 @@ a:hover {
 .jumbo-btn {
     margin-top: 10px;
 }
+
+
+/* FORMS STYLE*/
+.h1-form{
+ text-align: center;
+ color: #3EE181;
+ padding-top: 20px;
+}
+
+.new-camp-form {
+    width: 780px;
+    margin: 100px auto;
+}
+
+
 @media (max-width: 1200px) {
     .h3-jumbo {
         display: inline-block;
@@ -192,6 +192,7 @@ a:hover {
         margin-top: 0;
     }
 }
+
 
 
 /*COLLAPSE EARLIER*/
@@ -240,18 +241,14 @@ a:hover {
         .search-btn{
             display:none;
         }
+        .new-camp-form {
+            width: 390px;
+        }
 }
 
-/*.container {*/
-/*    background: rgba(248, 220, 56, .3);*/
-/*}*/
 
 .navbar-default {
     background: rgb(62, 225, 129);
-/*background: #3EE181;*/
-/*background: #ECE9E6;   fallback for old browsers */
-/*background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);   Chrome 10-25, Safari 5.1-6 */
-/*background: linear-gradient(to right, #FFFFFF, #ECE9E6);  W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .navbar-default .navbar-nav>.active>a {
@@ -283,26 +280,88 @@ a:hover {
     transform: translateY(-5px);
 }
 
-/*.jumbotron {*/
-/*    color:#fff !important;*/
-/*}*/
-
-
 
 /*IMAGE THUMBNAILS*/
 
 .thumbnail {
+  /*height: 20em;*/
   border: 1px solid rgba(0, 0, 0, .3);
   background: white;
   border-radius: 0 0 2px 2px;
-  box-shadow: 0 2px 2px 0 rgba(62, 225, 129, 1), 0 1px 5px 0 rgba(62, 225, 129, 1), 0 3px 1px -2px rgba(62, 225, 129, 1);
+  box-shadow:  0 1px 2px 0 rgba(62, 225, 129, 1), 0 0 1px -2px rgba(62, 225, 129, 1);
 }
 
-.thumbnail a > img {
-  border-radius: 100%;
-  height: 60%;
+/*.thumbnail a > img {*/
+    /*height: 10em;*/
+    /*min-height: 10em;*/
+    /*max-height: 10em;*/
+    /*height: 10%;*/
+    /*position: absolute;*/
+/*    left: 0;*/
+    
+/*}*/
+
+.my-card-row {
+    margin-left: 20px;
+}
+
+.my-card:first-child {
+    margin-left: 20px;
+}
+
+.my-card {
+    margin-right: 20px;
+    width: 20em;
+}
+
+.card-image img {
+   width: 100%;
+   transform: scale(2);
+}
+
+.card-image {
+    /*height: 10em;*/
+    width: 100%;
+    height: 60%;
+    background: #444;
+    /*margin: 0 auto;*/
+    overflow: hidden;
+    background-size: cover;
+    background-position: center center;
+    
+     
     
 }
+
+/*.card-image img {*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    background-repeat: no-repeat;*/
+/*    background-size: cover;*/
+/*    background-position: center;*/
+/*}*/
+
+
+.card-image img.wide {
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+}
+.card-image img.tall {
+    max-height: 100%;
+    max-width: 100%;
+    width: auto;
+}
+
+
+
+
+.img-responsive, .thumbnail > img, .thumbnail a > img, .carousel-inner > .item > img, .carousel-inner > .item > a > img {
+    /*height: 10em;*/
+    
+}
+
+
 
 .thumbnail .caption {
     padding: 9px;
@@ -330,8 +389,9 @@ a:hover {
 .login-button{margin:10px auto;}
 .login-form{
     width:390px;
-    margin: 80px auto;
+    margin: 100px auto;
 }
+
 
 .form-control { margin-bottom: 10px; }
 

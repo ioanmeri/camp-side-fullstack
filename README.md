@@ -57,7 +57,7 @@ So far CampSide supports:
 | Forgot| POST | "/forgot" | Handling Forgot password Logic |
 | Reset| GET | "/reset/:token" | Get a token to reset password|
 | Reset| POST | "/reset/:token" | Confirm new password |
-| User | GET | "/users/:id" | Visit user's profile (if authenticated in) |
+| User | GET | "/users/:id" | Visit user's profile (if authenticated |
 | User | GET | "/users/:id/edit" | Edit user's profile (if authorized) |
 | User | PUT | "/users/:id" | Update Users Profile (if authorized) |
 | Comment New | GET | "/comments/new" | Show add comment form (if authenticated) |

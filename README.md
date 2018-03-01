@@ -65,7 +65,7 @@ So far CampSide supports:
 | Comment Edit | GET | "/:comment_id/edit" | Edit User's comment (if authorized) |
 | Comment Update | PUT | "/:comment_id" | Edit comment in the DB (if authorized) |
 | Comment Delete | DELETE | "/:comments_id" | Delete Users comment (if authorized)|
-| Contant | GET | "/contact" | Show contact form |
+| Contact | GET | "/contact" | Show contact form |
 | Contact | POST | "/send" | Handling contact logic |
 
 

@@ -17,9 +17,7 @@ and has a profile with:
 * his/her added campgrounds
 * his/her comments
 
-**Routers follow the RESTful pattern**
-
-#### CampSide is more like a playground and new feautures are added often.
+#### CampSide is a demonstration project and new feautures are added often.
 
 So far CampSide supports:
 * Landing Page
@@ -36,6 +34,39 @@ So far CampSide supports:
 * Editing and Deleting Comments
 * Editing Profile (the frontend will be updated though)
 * Flash messages
+
+
+**Routers follow the RESTful pattern**
+
+| ROUTE   |      HTTP Verb      |  PATH | Description |
+|----------|:-------------|------| --------------|
+| Root  | GET | "/" | landing page |
+| Index | GET | "/campgrounds | List all the campgrounds |
+| Create | POST | "/campgrounds" | Create new campground (if authenticated) |
+| New camp | GET | "/campgrounds/new" | Show new campground form |
+| Show one | GET | "/campgrounds/:id" | Show one detailed campground |
+| Edit camp | GET | "/campgrounds/:id/edit" | Edit campground's info (if authorized) |
+| Update | PUT | "/campgrounds/:id" | Update Campground in the DB |
+| DESTROY | DELETE | "/campgrounds/:id" | Delete a campground (if authorized)|
+| Login | GET |"/login" | Login Form| 
+| Login | POST |"/login" | Handling User Login| 
+| Register | GET |"/register" | Sign Up form | 
+| Register | POST| "/register" | Handling Sign Up | 
+| Logout| GET | "/logout" | Logout user |
+| Forgot| GET | "/forgot" | Forgot Password Form |
+| Forgot| POST | "/forgot" | Handling Forgot password Logic |
+| Reset| GET | "/reset/:token" | Get a token to reset password|
+| Reset| POST | "/reset/:token" | Confirm new password |
+| User | GET | "/users/:id" | Visit user's profile (if authenticated in) |
+| User | GET | "/users/:id/edit" | Edit user's profile (if authorized) |
+| User | PUT | "/users/:id" | Update Users Profile (if authorized) |
+| Comment New | GET | "/comments/new" | Show add comment form (if authenticated) |
+| Comment Create | POST | "/comments" | add a comment in the DB (if authenticated) |
+| Comment Edit | GET | "/:comment_id/edit" | Edit User's comment (if authorized) |
+| Comment Update | PUT | "/:comment_id" | Edit comment in the DB (if authorized) |
+| Comment Delete | DELETE | "/:comments_id" | Delete Users comment (if authorized)|
+| Contant | GET | "/contact" | Show contact form |
+| Contact | POST | "/send" | Handling contact logic |
 
 
 ### MODELS

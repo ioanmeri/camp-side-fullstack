@@ -1,42 +1,37 @@
 <% include ../partials/header %>
-<div class="container register-form">
-    <h1 style="text-align: center"><i class="ion-paper-airplane" style="color: #00CB51;"></i>  Contact Us</h1>
-       
+<div class="container bg-warning register-form">
+    <h1 class="h1-form"><i class="ion-paper-airplane"></i>  Contact Us</h1>
+
     <div class="panel panel-default">
-        <div class="panel-body">
+        <div class="panel-body bg-warning">
         
             <form action="/contact/send" method="post">
                 
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="input-group login-userinput">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                            <input class="form-control contact-input" type="text" name="name" placeholder="Fullname" required autofocus />
-                        </div>
+                <div class="col-xs-12">
+                    <div class="input-group form-group">
+                        <span class="input-group-addon"><span class="ion-icon-gr ion-person"></span></span>
+                        <input class="form-control contact-input" type="text" name="name" placeholder="Fullname" required autofocus />
                     </div>
                 </div>
                 
-                <div class="row">
+               <div class="row">
                     <div class="col-xs-12 col-sm-6">
-                        <div class="input-group login-userinput">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
-                            <input class="form-control contact-input" type="email" name="email" placeholder="Email" required data-error="Your Email is Required"/>
+                        <div class="input-group form-group">
+                            <span class="input-group-addon"><span class="ion-icon-gr ion-email"></span></span>
+                            <input class="form-control" type="email" name="email" placeholder="Email" required/>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6">
-                        <div class="input-group login-userinput">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-phone-alt"></span></span>
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="ion-icon-gr ion-android-call"></span></span>
                             <input class="form-control contact-input" name="phone" placeholder="Phone Number" type="text" />
                         </div>
                     </div>
                 </div>
                 
-                
-                <div class="row img-responsive center-block">
-                    <label class="register-label " for="bio">Messsage</label>
-                    <div class="col-xs-12">
-                        <textarea class="form-control contact-text" name="message" rows="5" cols="10" style="resize: vertical;" placeholder="Enter your message here.." required data-error="Please, leave us a message."></textarea>
-                    </div>
+                <div class="form-group">
+                    <label class="label-center" for="bio">Messsage</label>
+                    <textarea class="form-control form-group" name="message" rows="5" cols="10" style="resize: vertical;" placeholder="Enter your message here.." required data-error="Please, leave us a message."></textarea>
                 </div>
             
                 <!--<div>-->
@@ -44,13 +39,14 @@
                 <!--</div>-->
                 
                 <div class="form-group">
-                    <button class="btn btn-lg btn-success btn-block"> Send Email!</button>
+                    <button class="btn btn-primary btn-block"> Send Email!</button>
                 </div>
+                
+                <a href="/campgrounds">Go Back</a>
             
             </form>
-         </div> <!-- panel body -->
-</div><!-- panel -->
-        <a href="/campgrounds">Go Back</a>
+         </div>
+    </div>
 </div>
 
 <% include ../partials/footer %>

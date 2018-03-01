@@ -1,28 +1,29 @@
 <% include ./partials/header %>
-<div class="container login-form" style="background-color: #F8DC38;">
+<div class="container login-form bg-warning">
     <h1 class="h1-form"><i class="ion-flag"></i>  Login</h1>
     
-    <div class="panel panel-default" style="background-color: #F8DC38;">
-        <div class="panel-body">
+    <div class="panel panel-default">
+        <div class="panel-body bg-warning">
 
             <form action="/login" method="post">
          
-            	<div class="input-group login-userinput">
-    				<span class="input-group-addon"><span class="ion-icon ion-person" style="color: #3EE181;"></span></span>
-    				<input type="text" class="form-control login-input" name="username" placeholder="Username" autofocus>
+            	<div class="input-group form-group">
+    				<span class="input-group-addon"><span class="ion-icon-gr ion-person"></span></span>
+    				<input type="text" class="form-control" name="username" placeholder="Username" autofocus>
     			</div>
-    			
-                
-                <div class="input-group">
-    				<span class="input-group-addon"><span class="ion-icon ion-lock-combination" style="color: #3EE181;"></span></span>
-    					<input type="password" class="form-control login-input" name="password" placeholder="Password">
-                    </span>  
+
+                <div class="input-group form-group">
+    				<span class="input-group-addon"><span class="ion-icon-gr ion-lock-combination"></span></span>
+    				<input type="password" class="form-control" name="password" placeholder="Password">
+                   
     			</div>
                 
-                <button class="btn btn-primary btn-block login-button" type="submit"><i class="ion-icon ion-log-in"></i>  Login</button>
+             
+                <button class="btn btn-primary btn-block mb-15" type="submit"><i class="ion-icon ion-log-in text-center"></i>  Login</button>
+
+                
             
             </form>
-            
             <a href="/forgot">Forgot my password</a><br/>
             <a href="/campgrounds">Go Back</a>
             

@@ -7,7 +7,7 @@ body {
   z-index: 1;
   position: relative;
   text-align: center;
-  padding-top: 30vh;
+  padding-top: 20vh;
 }
 
 #landing-header h1 {
@@ -19,12 +19,20 @@ body {
   margin-bottom: 20px;
 }
 
+@media (max-width: 768px){
+  #landing-header h1 {
+    font-size: 40px;
+  }
+}
+
+
 a:link,
 a,
 a:visited {
   color: #fff;
-  text-decoration:none;
+  text-decoration:none !important;
 }
+
 
 .btn-l {
   display: inline-block;
@@ -76,26 +84,26 @@ a:visited {
 }
 
 .slideshow li:nth-child(1) { 
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(http://i.imgur.com/K3mPv14.jpg) 
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.1)), url(../images/land1-min.jpg) 
 }
 
 .slideshow li:nth-child(2) { 
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(http://i.imgur.com/SBEmFpv.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2)), url(http://i.imgur.com/SBEmFpv.jpg);
       animation-delay: 10s; 
 }
 
 .slideshow li:nth-child(3) { 
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(http://i.imgur.com/emvhOnb.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2)), url(http://i.imgur.com/emvhOnb.jpg);
   animation-delay: 20s; 
 }
 
 .slideshow li:nth-child(4) { 
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(http://i.imgur.com/2LSMCmJ.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)), url(http://i.imgur.com/2LSMCmJ.jpg);
   animation-delay: 30s; 
 }
 
 .slideshow li:nth-child(5) { 
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(http://i.imgur.com/TVGe0Ef.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2)), url(http://i.imgur.com/TVGe0Ef.jpg);
   animation-delay: 40s; 
 }
 

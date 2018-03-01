@@ -1,87 +1,66 @@
 <% include ./partials/header %>
+<div class="container bg-warning register-form">
+    <h1 class="h1-form"><i class="ion-flag"></i>  Sign Up Form</h1>
 
-<div class="container register-form">
-    <h1 style="text-align: center"><i class="ion-flag" style="color: #FFBB33;"></i>  Sign Up Form</h1>
-       
     <div class="panel panel-default">
-        <div class="panel-body">
-        
-            <form action="/register" method="post">
+        <div class="panel-body bg-warning">
+        <form action="/register" method="post">
                 
-                <div class="row">
-                    <div class="col-xs-12 col-sm-6">
-                        <div class="input-group login-userinput">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                            <input class="form-control reg-input" type="text" name="username" placeholder="Username" minlength="4" required autofocus />
-                        </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div class="input-group form-group ">
+                       	<span class="input-group-addon"><span class="ion-icon-gr ion-person"></span></span>
+                        <input class="form-control" type="text" name="username" placeholder="Username" minlength="4" required autofocus />
                     </div>
-                    <div class="col-xs-12 col-sm-6">
-                        <div class="input-group login-userinput">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                            <input class="form-control reg-input" type="password" name="password" placeholder="Password" required minlength="6" maxlength="16">
-                        </div>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div class="input-group form-group">
+                        <span class="input-group-addon"><span class="ion-icon-gr ion-lock-combination"></span></span>
+                        <input class="form-control" type="password" name="password" placeholder="Password" required minlength="6" maxlength="16">
                     </div>
                 </div>
                 
-                
-                <div class="row">
-                    <div class="col-xs-12 col-sm-6">
-                        <input class="form-control reg-input" name="firstName" placeholder="First Name" type="text" required minlength="4" />
+                <div class="col-xs-12 col-sm-6">
+                    <input class="form-control" name="firstName" placeholder="First Name" type="text" required minlength="4" />
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <input class="form-control" name="lastName" placeholder="Last Name" type="text" required minlength="4"/>
+                </div>
+    
+                <div class="col-xs-12 col-sm-6">
+                    <div class="input-group form-group">
+                        <span class="input-group-addon"><span class="ion-icon-gr ion-email"></span></span>
+                        <input class="form-control" type="email" name="email" placeholder="Email" required minlength="6"/>
                     </div>
-                    <div class="col-xs-12 col-sm-6">
-                        <input class="form-control reg-input" name="lastName" placeholder="Last Name" type="text" required minlength="4"/>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div class="input-group form-group">
+                        <span class="input-group-addon"><span class="ion-icon-gr ion-ios-location"></span></span>
+                        <input class="form-control" name="city" placeholder="Hometown" type="text" />
                     </div>
                 </div>
                 
-                
-                <div class="row">
-                    <div class="col-xs-12 col-sm-6">
-                        <div class="input-group login-userinput">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
-                            <input class="form-control reg-input" type="email" name="email" placeholder="Email" required minlength="6"/>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6">
-                        <div class="input-group login-userinput">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-map-marker"></span></span>
-                            <input class="form-control reg-input" name="city" placeholder="Hometown" type="text" />
-                        </div>
-                    </div>
-                </div>
-                
-                
-                <label class="register-label">BirthDay </label>
-                <div class="row img-responsive center-block" style="width: 240px;">
+                <label class="label-center">BirthDay</label>
+                <div class="center-block" style="width: 180px;">
                     <div id="datepicker" class="input-group date" data-date-format="mm-dd-yyyy">
-                        <input class="form-control reg-input" type="text" name="birthday" required readonly />
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                        <input class="form-control" type="text" name="birthday" required readonly />
+                        <span class="input-group-addon"><i class="ion-icon-gr ion-calendar"></i></span>
                     </div>
                 </div>
-                
-                
-                <div class="row img-responsive center-block">
-                    <label class="register-label " for="bio">Bio</label>
-                    <div class="col-xs-12">
-                        <textarea class="form-control reg-text" name="bio" rows="5" cols="10" style="resize: vertical;" placeholder="Enter your Bio here.."></textarea>
-                    </div>
+            
+                <div class="form-group">
+                    <label class="label-center" for="bio">Bio</label>
+                    <textarea class="form-control form-group" name="bio" rows="5" cols="10" style="resize: vertical;" placeholder="Enter your Bio here.."></textarea>
                 </div>
                 
-                
-                <!--<div>-->
                 <!--   <div id="captcha" class="g-recaptcha form-group" data-sitekey="6LchjEgUAAAAAOXrep31OfZFZXrGqEY7wqAvnLC6"></div>-->
                     <!--local-->
                     <!--<div id="captcha" class="g-recaptcha form-group" data-sitekey="6LfIu0EUAAAAAN-CoT0y4_UfU2D5W1Et4j-axuKq"></div>-->
                 <!--</div>-->
-                
-                <div class="form-group">
-                    <button class="btn btn-lg btn-warning btn-block"><i class="ion-icon ion-person-add"></i>  Sign Up!</button>
-                </div>
+             
+                <button class="btn btn-primary btn-block"><i class="ion-icon-w ion-person-add"></i>  Sign Up!</button>
             
             </form>
-            
-        </div> <!-- panel body -->
-    </div><!-- panel -->
+        </div>
+    </div>
 </div>
-        
-
 <% include ./partials/footer %>

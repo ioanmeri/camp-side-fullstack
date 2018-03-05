@@ -1,7 +1,8 @@
 # FullStack Application
 
 [Visit CampSide](https://camp-side.herokuapp.com/ "Deployed Demo")
-(The server may take a while to respond)
+
+*Note: Initial load may take a while because inactive apps hibernate*
 
 ### Please note that this project is a work in progress.
 

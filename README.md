@@ -6,7 +6,7 @@
 
 ### Please note that this project is a work in progress.
 
-A visitor is able to explore different campgrounds. 
+A guest is able to explore different campgrounds. 
 
 A user, after (s)he has **signed up** or **login**, is able to:
 * add a new campground

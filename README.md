@@ -1,5 +1,6 @@
 # FullStack Application
 *Based on the course: [The Web Developer Bootcamp](https://www.udemy.com/course/the-web-developer-bootcamp/) by Colt Steele*
+
 [Visit CampSide](https://camp-side.herokuapp.com/ "Deployed Demo")
 
 *Note: Initial load may take a while because inactive apps hibernate*
